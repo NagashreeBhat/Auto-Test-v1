@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="PushNotifications">
+        <wb-resource deploy-path="/" source-path="/apps/PushNotifications/common"/>
+        <wb-resource deploy-path="/" source-path="/apps/PushNotifications/android"/>
+        <wb-resource deploy-path="/" source-path="/apps/PushNotifications/iphone"/>
+        <property name="context-root" value="PushNotifications"/>
+    </wb-module>
+</project-modules>

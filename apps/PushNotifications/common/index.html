@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+
+<html>
+   	<head>
+   		<meta charset="UTF-8">
+   		<title>Functionality Test</title>
+   		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+   		<!--
+    		<link rel="shortcut icon" href="images/favicon.png">
+    		<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
+    	-->
+   		<link rel="stylesheet" href="css/main.css">
+   		<script>window.$ = window.jQuery = WLJQ;</script>
+   	</head>
+   	<body style="display: none;" onload= "WL.Client.init{{}}">
+   	<!-- UI Controls -->
+   	
+   	<div id="header">
+			<h1>UI Controls</h1>
+		</div>		
+			
+		<div id="wrapper">
+		    
+			<input type="button" id="BusyIndicatorStartButton" value="Display WL.BusyIndicator for 5 seconds" /><br />
+			<input type="button" id="SimpleDialogStartButton"  value="Invoke WL.SimpleDialog" />
+			</div>
+   	
+   <!-- Form Based Authentication -->	
+   <div id="header">
+				<h1>Form Based Authentication</h1>
+			</div>
+    		
+    		<div id="wrapper">
+	    		<div id="AppDiv">			
+					<input type="button" id="getSecretDataButton" value="Call protected adapter procedure" onclick="getSecretData()" />
+					<input type="button" class="appButton" value="Logout" onclick="WL.Client.logout('SampleAppRealm', {onSuccess:  WL.Client.reloadApp});" />
+					<div id="ResponseDiv"></div>
+				</div>
+	
+				<div id="AuthDiv" style="display: none">
+					<div id="loginForm">
+						<input type="text" placeholder="Enter username" id="AuthUsername" /><br />
+						<input type="password" placeholder="Enter password" id="AuthPassword" /><br/>		
+						<input type="button" class="formButton" id="AuthSubmitButton" value="Login" /><input type="button" class="formButton" id="AuthCancelButton" value="Cancel" />
+					</div>
+				</div> 
+			</div>   	
+   	
+   	
+   	
+   	
+   	
+   	<!-- Push Notifications -->
+   		<div id="header">
+			<h1>Push Notifications</h1>
+		</div>
+   		
+   		<div id="AppBody">	
+			<div class="wrapper">
+				<input type="button" id="isPushSupportedButton" class="appButtons" value="isPushSupported" onclick="isPushSupported();"/>
+				<input type="button" id="isSubscribedButton" class="appButtons" value="isSubscribed" onclick="isPushSubscribed();"/>
+				<br />
+				<input type="button" id="SubscribeButton" class="appButtons" value="Subscribe" onclick="doSubscribe();" disabled="disabled"/>
+				<input type="button" id="UnsubscribeButton" class="appButtons" value="Unsubscribe" onclick="doUnsubscribe();" disabled="disabled"/><br />				
+			</div> 	
+		</div>
+
+		<div id="AuthBody" style="display: none">
+			<div class="wrapper">
+				<form id="loginForm" >
+					<input type="text" id="usernameInputField" placeholder="Username"/><br />
+					<input type="password" id="passwordInputField" placeholder="Password"/><br/>		
+					<input type="button" id="loginButton" value="Login" />
+				</form>
+			</div>
+		</div> 
+		
+		
+		
+		
+   	<!--  ******************************** Java Adapter(HTTP Request) ************************************* -->
+			      
+			      <div id="header">
+				<h1>Java Adapter</h1>
+			</div>
+			<div id="wrapper">
+				<div style="text-align: center;">
+				<button onClick="getRate()" class="button">Get rate USD->EUR</button>
+				
+				</div>
+				</div>
+				
+		<!-- ************************************************************************************************ -->
+   	<!--  Custom Device Update -->
+   	<div id="header">
+			<h1>Custom Direct Update</h1>
+		</div>			
+		<div id="wrapper">
+			<p id="changeText">Change this text</p>
+			</div>
+			
+			
+			
+			<!--  Custom Device Provisioning -->  
+		
+		<div id="header">
+				<h1>Custom Device Provisioning</h1>
+			</div>
+			
+			<div id="wrapper">
+	    		<div id="AppBody">
+	    			<p id="beforeProv">								
+						Tap the connect button to authenticate using custom device provisioning.			
+					</p>
+					
+					<input type="button" id="connectToServerButton" class="appButton" value="Connect to MobileFirst Server"/>
+					<p id="provisioningError" style="display: none"></p> 
+				</div>
+	
+				<div id="ProvBody" style="display: none">
+					<p id="provisioningError">
+						<div id="provisioningErrorDiv"></div>
+						<input id="provisioningCode" placeholder="Enter code" type="text" />
+						<input type="button" id="submitProvCodeButton" class="formButton" value="Send"/>
+					
+				</div>
+			</div>
+			
+			
+			<!--  ************* Location Services **************** -->
+			
+<!-- <input type="button" id="loadPage1Button" class="appButton" value="Location Services" onclick="currentPage.Page1" /> -->
+			
+   	
+<!--    	<input id="btntest" type="button" value="Location Services" 
+       onclick="return btntest_onclick()" onload="wlCommonInit();"/>
+<script>
+
+function btntest_onclick() 
+{
+    window.location.href = "Page1.html";
+    
+}
+
+</script> -->
+   	
+   	
+   	
+   	
+   	<div id="header">
+			<h1>Location Services</h1>
+		</div>
+
+		<div id="wrapper">
+    		<p>
+    			Your position will appear below. Errors will be displayed in alerts.
+    		</p>
+    		<p>
+    			After 3 seconds, if you haven't moved more than 50 meters, an alert will be displayed and an event will be sent to the server.<br>Once you have moved more than 200 meters, an alert will be displayed and ant event will be sent to the server.
+    		</p>
+
+   			<div id="longitude"><b>Longitude:</b> </div>
+   			<div id="latitude"><b>Latitude:</b> </div>
+   			<div id="timestamp"><b>Timestamp:</b> </div>
+   		</div>
+   	
+   	
+   	
+   	
+   	
+   		<script src="js/initOptions.js"></script>
+   		<script src="js/Page1.js"></script>
+   		<script src="js/main.js"></script>
+   		<script src="js/messages.js"></script>
+       	<script src="js/PushAppRealmChallengeHandler.js"></script>
+       	<script src="js/SampleAppRealmChallengeHandler.js"></script>
+       	<script src="js/CustomDeviceProvisioningRealmChallengeHandler.js"></script>
+       	
+   	</body>
+</html>
