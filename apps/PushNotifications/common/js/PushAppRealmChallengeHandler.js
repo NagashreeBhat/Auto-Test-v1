@@ -21,6 +21,7 @@ pushAppRealmChallengeHandler.isCustomResponse = function(response) {
     
     if (indicatorIdx >= 0){
 		return true;
+		
 	}  
 	return false;
 };
@@ -29,6 +30,15 @@ pushAppRealmChallengeHandler.handleChallenge = function(response) {
 	$('#AppBody').hide();
 	$('#AuthBody').show();
 	$('#passwordInputField').val('');
+	
+	var reqURL = '/j_security_check';
+    var options = {};
+    options.parameters = {
+        j_username : "hi",
+        j_password : "12345"
+    };
+    options.headers = {};
+    pushAppRealmChallengeHandler.submitLoginForm(reqURL, options, pushAppRealmChallengeHandler.submitLoginFormCallback);
 };
 
 pushAppRealmChallengeHandler.submitLoginFormCallback = function(response) {

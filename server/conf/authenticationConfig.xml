@@ -27,6 +27,13 @@
 		 you must also update the application-descriptor.xml. Please refer to the user documentation 
 		 on application authenticity for environment specific guidelines. -->
     <securityTests>
+    
+    
+    <customSecurityTest name="CustomAuthSecurityTest">
+			<test realm="wl_antiXSRFRealm" />
+			<test realm="wl_deviceNoProvisioningRealm" isInternalDeviceID="true" />
+			<test realm="CustomRealm" isInternalUserID="true" />
+		</customSecurityTest>
         <!-- 
 		<mobileSecurityTest name="mobileTests">
 			<testAppAuthenticity/> 
@@ -79,8 +86,20 @@
  	 		<testDeviceId provisioningType="custom" realm="CustomDeviceProvisioningRealm"/>
 	 	</mobileSecurityTest>
 	 	<!-- ****************** -->
+	 	
+	 	
+	 	<!--  *******Single Step Auth **** -->
+	 	 <customSecurityTest name="DoubleStepAuthAdapter-securityTest">
+            <test isInternalUserID="true" realm="DoubleStepAuthRealm"/>
+        </customSecurityTest> 
+        <!--  ************************* -->
     </securityTests>
     <realms>
+    
+    <realm name="CustomRealm" loginModule="CustomLoginModule">
+			<className>com.demo.CustomAuthenticator</className>
+			<parameter name="greetingMessage" value="Happy new year! Please provide your credentials!"/>
+		</realm>
     
     <!--  Custom Device provisioning -->
     <!-- <realm name="CustomDeviceProvisioningRealm" loginModule="CustomDeviceProvisioningLoginModule">
@@ -151,6 +170,14 @@
         <realm loginModule="PushAppLoginModule" name="PushAppRealm">
             <className>com.worklight.core.auth.ext.FormBasedAuthenticator</className>
         </realm>
+        
+        
+        <realm loginModule="AuthLoginModule" name="DoubleStepAuthRealm">
+			<className>com.worklight.integration.auth.AdapterAuthenticator</className>
+			<parameter name="login-function" value="DoubleStepAuthAdapter.onAuthRequired"/>
+			<parameter name="logout-function" value="DoubleStepAuthAdapter.onLogout"/>
+		</realm>
+        
     </realms>
     <loginModules>
         <loginModule name="PushAppLoginModule">
@@ -192,5 +219,19 @@
         <!-- <loginModule name="MySSO" ssoDeviceLoginModule="WLDeviceAutoProvisioningLoginModule">
 			<className>com.worklight.core.auth.ext.NonValidatingLoginModule</className>
 		</loginModule> -->
+		
+		
+		
+		<loginModule name="CustomLoginModule">
+			<className>com.demo.CustomLoginModule</className>
+			<parameter name="username" value="mfp"/>
+			<parameter name="password" value="mfp"/>
+			<parameter name="maxAuthenticationAttempts" value="3"/>
+		</loginModule>
+		
+		<loginModule name="AuthLoginModule">
+			<className>com.worklight.core.auth.ext.NonValidatingLoginModule</className>
+		</loginModule>
+		
     </loginModules>
 </tns:loginConfiguration>

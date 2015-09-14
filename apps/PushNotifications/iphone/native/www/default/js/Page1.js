@@ -1,6 +1,6 @@
 
 /* JavaScript content from js/Page1.js in folder common */
-
+/*
 
 //display the position to the user
 function displayPosition(pos) {
@@ -193,3 +193,4 @@ function test(){
 	
 	alert("hi");
 }
+*/

@@ -33,25 +33,104 @@
 		<script src="worklight/worklight.js"></script>
 		<script src="worklight/checksum.js"></script>
 		<script>window.$ = window.jQuery = WLJQ;</script>
+   		<script>
+				function autoClick(){
+			//	document.getElementById('startButton').click();
+				// UI Controls
+				document.getElementById('BusyIndicatorStartButton').click();
+				$('#SimpleDialogStartButton').delay(6000).queue(function() {
+				    $(this).trigger('click');
+				});
+				$('#getSecretDataButton').delay(8000).queue(function() {
+				    $(this).trigger('click');
+				});
+				  $('#output').delay(10000).queue(function() {
+				    $(this).trigger('click');
+				});  
+				$('#isPushSupportedButton').delay(15000).queue(function() {
+				    $(this).trigger('click');
+				});
+				$('#isSubscribedButton').delay(17000).queue(function() {
+				    $(this).trigger('click');
+				});
+				$('#SubscribeButton').delay(18000).queue(function() {
+				    $(this).trigger('click');
+				});
+				$('#UnsubscribeButton').delay(21000).queue(function() {
+				    $(this).trigger('click');
+				});
+				$('#button').delay(24000).queue(function() {
+				    $(this).trigger('click');
+				});
+				$('#connectToServerButton').delay(40000).queue(function() {
+				    $(this).trigger('click');
+				});
+				$('#CodeButton').delay(30000).queue(function() {
+				    $(this).trigger('click');
+				});
+				$('#getSecretDataButton1').delay(28000).queue(function() {
+				    $(this).trigger('click');
+				});
+				}
+   	</script>
+   	<script>
+    /* var hidden = false;
+    function action() {
+        hidden = !hidden;
+        if(hidden) {
+            document.getElementById('BusyIndicatorStartButton').style.visibility = 'hidden';
+            document.getElementById('SimpleDialogStartButton').style.visibility = 'hidden';
+            document.getElementById('getSecretDataButton').style.visibility = 'hidden';
+            document.getElementById('appButton').style.visibility = 'hidden';
+            document.getElementById('output').style.visibility = 'hidden';
+            document.getElementById('isSubscribedButton').style.visibility = 'hidden';
+            document.getElementById('button').style.visibility = 'hidden';
+            document.getElementById('isPushSupportedButton').style.visibility = 'hidden';
+           // document.getElementById('submitProvCodeButton').style.visibility = 'hidden';
+            document.getElementById('startButton').style.visibility = 'hidden';
+            document.getElementById('SubscribeButton').style.visibility = 'hidden';
+            document.getElementById('UnsubscribeButton').style.visibility = 'hidden';
+            document.getElementById('connectToServerButton').style.visibility = 'hidden';
+           // document.getElementById('CodeButton').style.visibility = 'hidden';
+        } /* else {
+            document.getElementById('BusyIndicatorStartButton').style.visibility = 'visible';
+        } 
+    } */
+</script>	
     </head>
-    <body onload="WL.Client.init{{}}" style="display: none;">
+    <body onload="setTimeout('autoClick();',5000);" style="display: none;"> <!-- onload= "WL.Client.init{{}}" -->
+   	<!--  Hide Buttons -->
+        <div id="header">
+            <h1>Automation test for mfp 7.0</h1>
+        </div>
+    		<!-- <div id="wrapper">
+	    		<div id="AppDiv">			
+				<input type="button" id="startButton" value="Tap" onclick="action()" />	
+				</div>
+				</div> -->
    	<!-- UI Controls -->
-        <div id="header">
-            <h1>UI Controls</h1>
-        </div>		
-        <div id="wrapper">
-            <input id="BusyIndicatorStartButton" type="button" value="Display WL.BusyIndicator for 5 seconds">
-            <br>
-            <input id="SimpleDialogStartButton" type="button" value="Invoke WL.SimpleDialog">
-        </div>
-   <!-- Form Based Authentication -->	
-        <div id="header">
-            <h1>Form Based Authentication</h1>
-        </div>
+   	<!--  ************************ Test *********************************** -->
         <div id="wrapper">
             <div id="AppDiv">			
-                <input id="getSecretDataButton" onclick="getSecretData()" type="button" value="Call protected adapter procedure">
-					<input class="appButton" onclick="WL.Client.logout('SampleAppRealm', {onSuccess:  WL.Client.reloadApp});" type="button" value="Logout">
+                <input id="CodeButton" onclick="alerts();" type="button" value="Result">
+            </div>
+        </div>
+   	<!-- <div id="header">
+			<h1>UI Controls</h1>
+		</div>	 -->	
+        <div id="wrapper">
+            <input id="BusyIndicatorStartButton" style="visibility:hidden" type="button" value="Display WL.BusyIndicator for 5 seconds">
+            <br>
+            <input id="SimpleDialogStartButton" style="visibility:hidden" type="button" value="Invoke WL.SimpleDialog">
+        </div>
+   <!-- Form Based Authentication -->	
+   <!-- <div id="header">
+				<h1>Form Based Authentication</h1>
+			</div> -->
+        <div id="wrapper">
+            <div id="AppDiv">			
+                <input id="getSecretDataButton" onclick="getSecretData()" style="visibility:hidden" type="button" value="Call protected adapter procedure">
+					<input id="appButton" onclick="WL.Client.logout('SampleAppRealm', {onSuccess:  WL.Client.reloadApp});" style="visibility:hidden" type="button" value="Logout">
                 <div id="ResponseDiv"></div>
             </div>
             <div id="AuthDiv" style="display: none">
@@ -64,18 +143,37 @@
                 </div>
             </div> 
         </div>   	
-   	<!-- Push Notifications -->
-        <div id="header">
-            <h1>Push Notifications</h1>
+  <!--  ************************* Custom Authentication ******************** --> 	
+   <!-- 	<div id="header">
+	    		<h1>Custom Authentication</h1>
+	    		</div> -->
+        <div id="AppBody">
+            <div class="wrapper">
+                <button class="btn btn-default btn-block" id="output" onclick="getDataFromJSAdapter()" style="visibility:hidden">getSecretData from JavaScript Adapter</button>
+	    	 	<!-- <textarea id="output" style="width:20%; height:100px"></textarea> -->
+            </div>
+            <div id="LoginPage" style="display:none">
+                <h1>Login</h1>
+                <div id="errorMessage"></div>
+                <input class="form-control" id="username" placeholder="Enter username" type="text">
+				<input class="form-control" id="password" placeholder="Enter password" type="password">
+	    		<button class="btn btn-default btn-block" onclick="loginButtonClick()">Login</button>
+            </div>
         </div>
+   	<!-- Push Notifications -->
+   		<!-- <div id="header">
+			<h1>Push Notifications</h1>
+		</div> -->
         <div id="AppBody">	
             <div class="wrapper">
-                <input class="appButtons" id="isPushSupportedButton" onclick="isPushSupported();" type="button" value="isPushSupported">
-				<input class="appButtons" id="isSubscribedButton" onclick="isPushSubscribed();" type="button" value="isSubscribed">
+                <input class="appButtons" id="isPushSupportedButton" onclick="isPushSupported();" style="visibility:hidden" type="button" value="isPushSupported">
+				<input class="appButtons" id="isSubscribedButton" onclick="isPushSubscribed();" style="visibility:hidden" type="button" value="isSubscribed">
                 <br>
-                <input class="appButtons" disabled id="SubscribeButton" onclick="doSubscribe();" type="button" value="Subscribe">
-				<input class="appButtons" disabled id="UnsubscribeButton" onclick="doUnsubscribe();" type="button" value="Unsubscribe">
-                <br>				
+                <form autocomplete="on">
+                    <input class="appButtons" disabled id="SubscribeButton" onclick="doSubscribe();" style="visibility:hidden" type="button" value="Subscribe">
+				<input class="appButtons" disabled id="UnsubscribeButton" onclick="doUnsubscribe();" style="visibility:hidden" type="button" value="Unsubscribe">
+                    <br>				
+                </form>
             </div> 	
         </div>
         <div id="AuthBody" style="display: none">
@@ -91,68 +189,69 @@
         </div> 
    	<!--  ******************************** Java Adapter(HTTP Request) ************************************* -->
         <div id="header">
-            <h1>Java Adapter</h1>
-        </div>
-        <div id="wrapper">
+				<!-- <h1>Java Adapter</h1>
+			</div>
+			<div id="wrapper"> -->
             <div style="text-align: center;">
-                <button class="button" onClick="getRate()">Get rate USD-&gt;EUR</button>
+                <button id="button" onClick="getRate()" style="visibility:hidden">Get rate USD-&gt;EUR</button>
             </div>
         </div>
 		<!-- ************************************************************************************************ -->
    	<!--  Custom Device Update -->
-        <div id="header">
-            <h1>Custom Direct Update</h1>
-        </div>			
+   	<!-- <div id="header">
+			<h1>Custom Direct Update</h1>
+		</div>	 -->		
         <div id="wrapper">
-            <p id="changeText">Change this text</p>
+            <p id="changeText" style="visibility:hidden">Change this text</p>
         </div>
 			<!--  Custom Device Provisioning -->  
-        <div id="header">
-            <h1>Custom Device Provisioning</h1>
-        </div>
+		<!-- <div id="header">
+				<h1>Custom Device Provisioning</h1>
+			</div> -->
         <div id="wrapper">
             <div id="AppBody">
-                <p id="beforeProv">								
-						Tap the connect button to authenticate using custom device provisioning.			
-					</p>
-                <input class="appButton" id="connectToServerButton" type="button" value="Connect to MobileFirst Server">
+                <p id="beforeProv" style="visibility:hidden">								
+						<!-- Tap the connect button to authenticate using custom device provisioning. -->			
+                </p>
+                <input class="appButton" id="connectToServerButton" style="visibility:hidden" type="button" value="Connect to MobileFirst Server">
                 <p id="provisioningError" style="display: none"></p> 
             </div>
-            <div id="ProvBody" style="display: none">
-                <p id="provisioningError">
-                </p>
-                <div id="provisioningErrorDiv"></div>
-                <input id="provisioningCode" placeholder="Enter code" type="text">
+        </div>
+        <div id="ProvBody" style="display: none">
+            <p id="provisioningError">
+            </p>
+            <div id="provisioningErrorDiv"></div>
+            <input id="provisioningCode" placeholder="Enter code" type="text">
 						<input class="formButton" id="submitProvCodeButton" type="button" value="Send">
-            </div>
         </div>
-			<!--  ************* Location Services **************** -->
-<!-- <input type="button" id="loadPage1Button" class="appButton" value="Location Services" onclick="currentPage.Page1" /> -->
-        <input id="btntest" onclick="return btntest_onclick()" onload="wlCommonInit();" type="button" value="Location Services">
-<script>
-function btntest_onclick() 
-{
-    window.location.href = "Page1.html";
-}
-</script>
-        <div id="header">
-            <h1>Location Services</h1>
-        </div>
-        <div id="wrapper">
-            <p>
-    			Your position will appear below. Errors will be displayed in alerts.
-    		</p>
-            <p>
-    			After 3 seconds, if you haven't moved more than 50 meters, an alert will be displayed and an event will be sent to the server.<br>Once you have moved more than 200 meters, an alert will be displayed and ant event will be sent to the server.
-    		</p>
-            <div id="longitude">
-                <b>Longitude:</b> 
+		<!--  Double Step Auth  -->	
+        <div id="wrapper">	
+            <div id="AppDiv">				
+                <input id="getSecretDataButton1" onclick="getSecretDataDouble()" style="visibility:hidden" type="button" value="Get secret data">
+            		<input class="appButton" onclick="WL.Client.logout('DoubleStepAuthRealm', {onSuccess:WL.Client.reloadApp})" style="visibility:hidden" type="button" value="Logout">
+                <div id="ResponseDiv"></div>
             </div>
-            <div id="latitude">
-                <b>Latitude:</b> 
-            </div>
-            <div id="timestamp">
-                <b>Timestamp:</b> 
+            <div id="AuthDiv" style="display:none">        		
+                <p id="AuthInfo"></p>
+                <div id="AuthStep1Div">
+                    <h3>Authentication Step 1</h3>
+                    <input id="AuthUsername" placeholder="Enter username" type="text">
+                    <br>
+                    <input id="AuthPassword" placeholder="Enter password" type="password">
+                    <br>
+                    <input class="formButton" id="AuthStep1Submit" type="button" value="Submit"><input class="AuthCancelButton" type="button" value="Cancel">
+                </div>
+                <div id="AuthStep2Div">
+                    <h3>Authentication Step 2</h3>
+                    <p id="AuthQuestion"></p>
+                    <input id="AuthAnswer" placeholder="Enter answer" type="text">
+                    <br>
+                    <input class="formButton" id="AuthStep2Submit" type="button" value="Submit"><input class="AuthCancelButton" type="button" value="Cancel">
+                    <p> 
+                    </p>
+                    <p> 
+                    </p>
+                </div>
             </div>
         </div>
         <script src="js/initOptions.js"></script>
@@ -162,5 +261,7 @@ function btntest_onclick()
        	<script src="js/PushAppRealmChallengeHandler.js"></script>
        	<script src="js/SampleAppRealmChallengeHandler.js"></script>
        	<script src="js/CustomDeviceProvisioningRealmChallengeHandler.js"></script>
+       	<script src="js/jquery.format.js"></script>
+       	<script src="js/DoubleStepAuthRealmChallengeProcessor.js"></script>
     </body>
 </html>

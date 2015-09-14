@@ -26,19 +26,32 @@ sampleAppRealmChallengeHandler.isCustomResponse = function(response) {
 };
 
 sampleAppRealmChallengeHandler.handleChallenge = function(response) {
-	$('#AppDiv').hide();
-	$('#AuthDiv').show();
-	$('#AuthPassword').val('');
+//	$('#AppDiv').hide();
+//	$('#AuthDiv').show();
+//	$('#AuthPassword').val('');
+	var reqURL = '/j_security_check';
+    var options = {};
+    options.parameters = {
+        j_username : "hi",
+        j_password : "12345"
+    };
+    
+    options.headers = {};
+    sampleAppRealmChallengeHandler.submitLoginForm(reqURL, values, sampleAppRealmChallengeHandler.submitLoginFormCallback);
+
+	//WL.Logger.debug ("Successfully connected to MobileFirst Server.");
 };
 
 sampleAppRealmChallengeHandler.submitLoginFormCallback = function(response) {
     var isLoginFormResponse = sampleAppRealmChallengeHandler.isCustomResponse(response);
     if (isLoginFormResponse){
     	sampleAppRealmChallengeHandler.handleChallenge(response);
+    	//sampleAppRealmChallengeHandler.submitLoginForm(reqURL, options, sampleAppRealmChallengeHandler.submitLoginFormCallback);
     } else {
 		$('#AppDiv').show();
 		$('#AuthDiv').hide();
 		sampleAppRealmChallengeHandler.submitSuccess();
+		
     }
 };
 
@@ -49,8 +62,9 @@ $('#AuthSubmitButton').bind('click', function () {
         j_username : $('#AuthUsername').val(),
         j_password : $('#AuthPassword').val()
     };
+    
     options.headers = {};
-    sampleAppRealmChallengeHandler.submitLoginForm(reqURL, options, sampleAppRealmChallengeHandler.submitLoginFormCallback);
+    sampleAppRealmChallengeHandler.submitLoginForm(reqURL, values, sampleAppRealmChallengeHandler.submitLoginFormCallback);
 });
 
 $('#AuthCancelButton').bind('click', function () {
