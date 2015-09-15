@@ -31,6 +31,7 @@
         </security>
     </iphone>
     <userIdentityRealms>PushAppRealm</userIdentityRealms>
+    <accessTokenExpiration>3600</accessTokenExpiration>
     <android securityTest="PushApplication-strong-mobile-securityTest" version="1.0">
         <worklightSettings include="false"/>
         <pushSender key="GCM_key" senderId="GCM_ID"/>
@@ -42,6 +43,9 @@
             <packageName>Replace this text with the actual package name of the application, which is the value of the 'package' attribute in the 'manifest' element in AndroidManifest.xml file.</packageName>
         </security>
     </android>
+<<<<<<< Updated upstream
     <accessTokenExpiration>3600</accessTokenExpiration>
+=======
+>>>>>>> Stashed changes
     <common securityTest="CustomAuthSecurityTest"/>
 </application>

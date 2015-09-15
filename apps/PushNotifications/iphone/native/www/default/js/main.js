@@ -338,7 +338,12 @@ challengeHandler.handleChallenge = function(challenge){
          })
  
         if (challenge.errorMessage){
+<<<<<<< Updated upstream
             $("#errorMessage").html(challenge.errorMessage);
+=======
+           // $("#errorMessage").html(challenge.errorMessage);
+        	alert9 = "Custom Authentication Failed";
+>>>>>>> Stashed changes
            
         }
     } 
@@ -363,6 +368,10 @@ challengeHandler.handleFailure = function (data){
     $("#MainPage").show();
 	$("#output").val(JSON.stringify(data));
     $('#output').format({method: 'json'});
+<<<<<<< Updated upstream
+=======
+    alert9 = "Custom Authentication Failed";
+>>>>>>> Stashed changes
 }
 
 //---------------------------------------- Double Step Authentication ---------------------------------------

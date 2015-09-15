@@ -99,7 +99,11 @@
    	
    	<!--  Hide Buttons -->
    	<div id="header">
+<<<<<<< Updated upstream
 				<h1>Automation test for mfp 7.0</h1>
+=======
+				<h1>Functionality test for mfp 7.0</h1>
+>>>>>>> Stashed changes
 			</div>
     		
     		<!-- <div id="wrapper">
@@ -206,10 +210,17 @@
 		
    	<!--  ******************************** Java Adapter(HTTP Request) ************************************* -->
 			      
+<<<<<<< Updated upstream
 			      <div id="header">
 				<!-- <h1>Java Adapter</h1>
 			</div>
 			<div id="wrapper"> -->
+=======
+			     <!--  <div id="header"> 
+				<!-- <h1>Java Adapter</h1>
+			</div>-->
+			<div id="wrapper"> 
+>>>>>>> Stashed changes
 				<div style="text-align: center;">
 				<button onClick="getRate()" id="button" style="visibility:hidden">Get rate USD->EUR</button>
 				
@@ -250,6 +261,7 @@
 						<input type="button" id="submitProvCodeButton" class="formButton" value="Send"/>
 					
 				</div>
+<<<<<<< Updated upstream
 			
 			
 		<!--  Double Step Auth  -->	
@@ -282,6 +294,40 @@
         		</div>
         	</div>
 			
+=======
+			
+			
+		<!--  Double Step Auth  -->	
+	<div id="wrapper">	
+    			<div id="AppDiv">				
+            		<input type="button" id="getSecretDataButton1" value="Get secret data" onclick="getSecretDataDouble()"  style="visibility:hidden"/>
+            		<input type="button" class="appButton" value="Logout" onclick="WL.Client.logout('DoubleStepAuthRealm', {onSuccess:WL.Client.reloadApp})" style="visibility:hidden"/>
+            		<div id="ResponseDiv"></div>
+        		</div>
+        
+        		<div id="AuthDiv" style="display:none">        		
+        			<p id="AuthInfo"></p>
+        		
+        			<div id="AuthStep1Div">
+        				<h3>Authentication Step 1</h3>
+        				<input type="text" placeholder="Enter username" id="AuthUsername"/><br />
+        				<input type="password" placeholder="Enter password" id="AuthPassword"/><br />
+        				<input type="button" class="formButton" value="Submit" id="AuthStep1Submit" /><input type="button" class="AuthCancelButton" value="Cancel" />
+        			</div>
+        	
+        			<div id="AuthStep2Div">
+        				<h3>Authentication Step 2</h3>
+        				<p id="AuthQuestion"></p>
+	        			<input type="text" placeholder="Enter answer" id="AuthAnswer"/><br />
+	        			<input type="button" class="formButton" value="Submit" id="AuthStep2Submit" /><input type="button" class="AuthCancelButton" value="Cancel" />
+        			
+        			<p> </p>
+        			<p> </p>
+        			</div>
+        		</div>
+        	</div>
+			
+>>>>>>> Stashed changes
    	
    		<script src="js/initOptions.js"></script>
    		<script src="js/Page1.js"></script>

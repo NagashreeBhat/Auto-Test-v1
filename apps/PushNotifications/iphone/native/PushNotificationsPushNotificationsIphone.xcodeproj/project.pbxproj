@@ -705,7 +705,11 @@
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Entitlements-Debug.plist";
+<<<<<<< Updated upstream
 				CODE_SIGN_IDENTITY = "iPhone Developer: Thejaswini Ramachandra (6D6FRG5988)";
+=======
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
+>>>>>>> Stashed changes
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -732,8 +736,9 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/WorklightSDK\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wrklightindia.push;
 				PRODUCT_NAME = PushNotifications;
-				PROVISIONING_PROFILE = "01c79257-5a01-4d38-a00a-347ebe830dac";
+				PROVISIONING_PROFILE = "d2ca53aa-fc72-4338-b02d-8d37cd8c6901";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "i386 armv7 armv7s arm64 i86_64";
@@ -756,7 +761,11 @@
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Entitlements-Release.plist";
+<<<<<<< Updated upstream
 				CODE_SIGN_IDENTITY = "iPhone Developer: Thejaswini Ramachandra (6D6FRG5988)";
+=======
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
+>>>>>>> Stashed changes
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -781,8 +790,9 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/WorklightSDK\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wrklightindia.push;
 				PRODUCT_NAME = PushNotifications;
-				PROVISIONING_PROFILE = "01c79257-5a01-4d38-a00a-347ebe830dac";
+				PROVISIONING_PROFILE = "d2ca53aa-fc72-4338-b02d-8d37cd8c6901";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "i386 armv7 armv7s arm64 i86_64";
@@ -794,8 +804,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Thejaswini Ramachandra (6D6FRG5988)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thejaswini Ramachandra (6D6FRG5988)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
 				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -808,8 +818,8 @@
 					"\"$(SRCROOT)/WorklightSDK/libWorklightStaticLibProject.a\"",
 					"-Obj-C",
 				);
-				PROVISIONING_PROFILE = "01c79257-5a01-4d38-a00a-347ebe830dac";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "01c79257-5a01-4d38-a00a-347ebe830dac";
+				PROVISIONING_PROFILE = "d2ca53aa-fc72-4338-b02d-8d37cd8c6901";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "d2ca53aa-fc72-4338-b02d-8d37cd8c6901";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s i386 arm64 i86_64";
 			};
@@ -831,7 +841,11 @@
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Entitlements-Release.plist";
+<<<<<<< Updated upstream
 				CODE_SIGN_IDENTITY = "iPhone Developer: Thejaswini Ramachandra (6D6FRG5988)";
+=======
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
+>>>>>>> Stashed changes
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -855,8 +869,9 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/WorklightSDK\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wrklightindia.push;
 				PRODUCT_NAME = PushNotifications;
-				PROVISIONING_PROFILE = "01c79257-5a01-4d38-a00a-347ebe830dac";
+				PROVISIONING_PROFILE = "d2ca53aa-fc72-4338-b02d-8d37cd8c6901";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s i386 arm64 i86_64";
@@ -869,8 +884,8 @@
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Thejaswini Ramachandra (6D6FRG5988)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thejaswini Ramachandra (6D6FRG5988)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
 				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -878,7 +893,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DDEBUG";
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "01c79257-5a01-4d38-a00a-347ebe830dac";
+				PROVISIONING_PROFILE = "d2ca53aa-fc72-4338-b02d-8d37cd8c6901";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -889,8 +904,8 @@
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Thejaswini Ramachandra (6D6FRG5988)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thejaswini Ramachandra (6D6FRG5988)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
 				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -903,7 +918,7 @@
 					"\"$(SRCROOT)/WorklightSDK/libWorklightStaticLibProject.a\"",
 					"-Obj-C",
 				);
-				PROVISIONING_PROFILE = "01c79257-5a01-4d38-a00a-347ebe830dac";
+				PROVISIONING_PROFILE = "d2ca53aa-fc72-4338-b02d-8d37cd8c6901";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s i386 arm64 i86_64";
 			};
