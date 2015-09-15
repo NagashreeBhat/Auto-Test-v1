@@ -9,8 +9,6 @@
     <string>PushNotifications</string>
     <key>CFBundleExecutable</key>
     <string>${EXECUTABLE_NAME}</string>
-    <key>CFBundleGetInfoString</key>
-    <string/>
     <key>CFBundleIconFiles</key>
     <array>
       <string>Icon-29</string>
@@ -44,8 +42,6 @@
     <string>????</string>
     <key>CFBundleVersion</key>
     <string>1.0</string>
-    <key>LSApplicationCategoryType</key>
-    <string/>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSAppTransportSecurity</key>
@@ -152,5 +148,11 @@
       <string>UIInterfaceOrientationPortraitUpsideDown</string>
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+      <!--Include to allow all connections (DANGER)-->
+      <key>NSAllowsArbitraryLoads</key>
+      <true/>
+    </dict>
   </dict>
 </plist>

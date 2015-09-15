@@ -202,9 +202,8 @@
 - (NSURL*)appUrl
 {
     NSURL* appURL = nil;
-    NSString* loadErr = nil;
 
-    if ([self.startPage rangeOfString:@"://"].location != NSNotFound && /*worklight change start*/![self.startPage hasPrefix:@"worklight://"]/*worklight change end*/) {
+    if ([self.startPage rangeOfString:@"://"].location != NSNotFound) {
         appURL = [NSURL URLWithString:self.startPage];
     } else if ([self.wwwFolderName rangeOfString:@"://"].location != NSNotFound) {
         appURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", self.wwwFolderName, self.startPage]];
@@ -212,14 +211,8 @@
         // CB-3005 strip parameters from start page to check if page exists in resources
         NSURL* startURL = [NSURL URLWithString:self.startPage];
         NSString* startFilePath = [self.commandDelegate pathForResource:[startURL path]];
-        /*worklight change start*/
-        if([self.startPage hasPrefix:@"worklight://"]){
-            startFilePath = [self.commandDelegate pathForResource:self.startPage];
-        }
-        /*worklight change end*/
+
         if (startFilePath == nil) {
-            loadErr = [NSString stringWithFormat:@"ERROR: Start Page at '%@/%@' was not found.", self.wwwFolderName, self.startPage];
-            NSLog(@"%@", loadErr);
             self.loadFromString = YES;
             appURL = nil;
         } else {
@@ -231,21 +224,9 @@
                 NSString* queryAndOrFragment = [self.startPage substringFromIndex:r.location];
                 appURL = [NSURL URLWithString:queryAndOrFragment relativeToURL:appURL];
             }
-            /*worklight change start*/
-            NSURL* relativeURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
-            NSString* localURL = [NSString stringWithFormat:@"%@/%@", self.wwwFolderName, self.startPage];
-            
-            if([self.startPage hasPrefix:@"worklight://"]){
-                appURL = [NSURL fileURLWithPath:startFilePath];
-            }else{
-                appURL = [NSURL URLWithString:localURL relativeToURL:relativeURL];
-            }
-            
-    		/*worklight change end*/
         }
     }
 
-	
     return appURL;
 }
 

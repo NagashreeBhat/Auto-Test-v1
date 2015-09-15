@@ -1,7 +1,7 @@
 
 /* JavaScript content from js/main.js in folder common */
 var busyIndicator = null;
-
+var alert1,alert2,alert3, alert4, alert5, alert6, alert7, alert9,alert8,alert10;
 function wlCommonInit(){
 	
 	busyIndicator = new WL.BusyIndicator(null, {text : 'Loading...'});
@@ -16,12 +16,7 @@ function wlCommonInit(){
 	});
 	
 	WL.App.setKeepAliveInBackground(true);
-	
-	/*WL.Client.connect({
-		onSuccess: onConnectSuccess,
-		onFailure: onConnectFailure
-	});
-	*/
+
 	
 }
 
@@ -30,15 +25,23 @@ function busyIndicatorDemo() {
 	setTimeout(function() {
 		busyIndicator.hide();
 	}, 5000);
+	
+	
 }
 
 function simpleDialogDemo(sec) {
 	var dialogTitle = "CommonControls";
 	var dialogText = "This is simple dialog text; take a look at the console";
-	
+	//------ UI Modification------------
+	busyIndicator2 = new WL.BusyIndicator(null, {text : 'UI Control'});
+	busyIndicator2.show();
+	setTimeout(function() {
+		busyIndicator2.hide();
+	}, 2000);
+	alert7=	"UI Control Success";
 	
 
-	WL.SimpleDialog.show(dialogTitle, dialogText, [ {
+	/*WL.SimpleDialog.show(dialogTitle, dialogText, [ {
 		text : 'I am button 1',
 		handler : simpleDialogButton1Click
 	}, {
@@ -47,7 +50,7 @@ function simpleDialogDemo(sec) {
 		
 	}
 
-	]);
+	]);*/
 	
 	    
 	
@@ -56,14 +59,15 @@ function simpleDialogDemo(sec) {
 
 
 function simpleDialogButton1Click() {
-	WL.Logger.debug("simpleDialogButton1 Clicked");
+
+	//WL.Logger.debug("simpleDialogButton1 Clicked");
 	
 
 }
 
 
 function simpleDialogButton2Click() {
-	WL.Logger.debug("simpleDialogButton2 Clicked");
+	//WL.Logger.debug("simpleDialogButton2 Clicked");
 
 
 	
@@ -72,55 +76,36 @@ function simpleDialogButton2Click() {
 
 
 
-///*Custom Based Login*/
-//function getSecretData(){
-//	/*
-//     * The REST API works with all adapters and external resources, and is supported on the following hybrid environments: 
-//     * iOS, Android, Windows Phone 8, Windows 8. 
-//     */ 
-//	var resourceRequest = new WLResourceRequest("/adapters/DummyAdapter/getSecretData", WLResourceRequest.GET);
-//	resourceRequest.send().then(
-//			getSecretData_CallbackOK,
-//			getSecretData_CallbackFail
-//	);
-//}
-//
-//function getSecretData_CallbackOK(response){
-//	$("#ResponseDiv").html(JSON.stringify(response.responseJSON));
-//}
-//
-//function getSecretData_CallbackFail(response){
-//	$("#ResponseDiv").html(JSON.stringify(response));
-//}
-
 /*Form Based Authentication */
 function getSecretData(){
-	/*
-	 * The REST API works with all adapters and external resources, and is supported on the following hybrid environments: 
-	 * iOS, Android, Windows Phone 8, Windows 8. 
-	 * If your application supports other hybrid environments, see the tutorial for MobileFirst 6.3.
-	 */
+	
 	var resourceRequest = new WLResourceRequest("/adapters/DummyAdapter/getSecretData", WLResourceRequest.GET);
 	resourceRequest.send().then(
 			getSecretData_CallbackOK,
 			getSecretData_CallbackFail
 	);
+	
 }
 
 function getSecretData_CallbackOK(response){
-	$("#ResponseDiv").html(JSON.stringify(response.responseJSON));
+	// $("#ResponseDiv").html(JSON.stringify(response.responseJSON));
+	//------ UI Modification------------
+	busyIndicator2 = new WL.BusyIndicator(null, {text : 'Form Auth'});
+	busyIndicator2.show();
+	setTimeout(function() {
+		busyIndicator2.hide();
+	}, 1500);
+	alert10 = "Form Based Authentication Success";
 }
 
 function getSecretData_CallbackFail(response){
-	$("#ResponseDiv").html(JSON.stringify(response.responseJSON));
+	//$("#ResponseDiv").html(JSON.stringify(response.responseJSON));
+	alert10 = "Form Based Failed";
 }
 
 
 /*Push Notification */
-//
-//function wlCommonInit() {
-//	WL.Client.connect({onSuccess: onConnectSuccess, onFailure: onConnectFailure});
-//}
+
 
 function onConnectSuccess() {
 	WL.Logger.debug ("Successfully connected to MobileFirst Server.");
@@ -145,7 +130,19 @@ function isPushSupported() {
 	if (WL.Client.Push){
 		isSupported = WL.Client.Push.isPushSupported();
 	}	
-	alert(isSupported);
+	//alert(isSupported);
+	if(isSupported == true){
+		//------ UI Modification------------
+		busyIndicator2 = new WL.BusyIndicator(null, {text : 'Push Support'});
+		busyIndicator2.show();
+		setTimeout(function() {
+			busyIndicator2.hide();
+		}, 1500);
+		alert1 = "Push Supported = TRUE";
+	}
+	else{
+		alert1 = "Push Not Supported";
+	}
 }
 
 function isPushSubscribed() {
@@ -153,7 +150,19 @@ function isPushSubscribed() {
 	if (WL.Client.Push){
 		isSubscribed = WL.Client.Push.isSubscribed('myPush');
 	}
-	alert(isSubscribed);
+	//alert(isSubscribed);
+	if(isSubscribed == false){
+		//------ UI Modification------------
+		busyIndicator2 = new WL.BusyIndicator(null, {text : 'Push Subscribe'});
+		busyIndicator2.show();
+		setTimeout(function() {
+			busyIndicator2.hide();
+		}, 1500);
+		alert2 = "Push Subcribed = FALSE";
+	}
+	else{
+		alert2 = "Push Subcribed Success";
+	}
 }
 
 //---------------------------- Set up push notifications -------------------------------
@@ -181,11 +190,23 @@ function doSubscribe() {
 }
 
 function doSubscribeSuccess() {
-	alert("doSubscribeSuccess");
+	//alert("doSubscribeSuccess");
+	
+	//------ UI Modification------------
+	busyIndicator2 = new WL.BusyIndicator(null, {text : 'Push Subscribed'});
+	busyIndicator2.show();
+	setTimeout(function() {
+		busyIndicator2.hide();
+	}, 1500);
+		alert3 = "Push Subscribe Success";
+	
+	
 }
 
 function doSubscribeFailure() {
-	alert("doSubscribeFailure");
+//	alert("doSubscribeFailure");
+	alert3 = "Push Subscribe Failure";
+	
 }
 
 //------------------------------- Unsubscribe ---------------------------------------
@@ -197,11 +218,26 @@ function doUnsubscribe() {
 }
 
 function doUnsubscribeSuccess() {
-	alert("doUnsubscribeSuccess");
+	//alert("doUnsubscribeSuccess");
+	//------ UI Modification------------
+	busyIndicator2 = new WL.BusyIndicator(null, {text : 'Unsubcribing'});
+	busyIndicator2.show();
+	setTimeout(function() {
+		busyIndicator2.hide();
+	}, 1500);
+	alert4 = "Unsubscribe Success";
+	
 }
 
 function doUnsubscribeFailure() {
-	alert("doUnsubscribeFailure");
+	//------ UI Modification-----------
+	busyIndicator2 = new WL.BusyIndicator(null, {text : 'Unsubcribing'});
+	busyIndicator2.show();
+	setTimeout(function() {
+		busyIndicator2.hide();
+	}, 1500);
+	//alert("doUnsubscribeFailure");
+	alert4 = "Unsubscribe Failed";
 }
 
 //------------------------------- Handle received notification ---------------------------------------
@@ -214,19 +250,8 @@ function pushNotificationReceived(props, payload) {
 
 
 
-/* Custom Device Provisioning */
-//function wlCommonInit(){
-//	$("#connectToServerButton").click(function(){
-//		WL.Client.connect({
-//			  onFailure: onConnectFailure
-//		});
-//	});
-//}
-
-
-
 function onConnectFailure(data){
-	WL.SimpleDialog.show("Custom Device Provisioning", "Service not available. Try again later.", 
+	/*WL.SimpleDialog.show("Custom Device Provisioning", "Service not available. Try again later.", 
 		[{
 			text : 'Reload',
 			handler : WL.Client.reloadApp 
@@ -234,7 +259,9 @@ function onConnectFailure(data){
 		{
 			text: 'Close',
 			handler : function() {}
-		}]);
+		}]);*/
+	
+	alert8 = "Custom Device Provisioning Failed";
 }
 
 
@@ -245,120 +272,134 @@ function getRate(){
 	
 	var req = new WLResourceRequest("/adapters/MyAdapter/API/convertCurrency/USD/EUR", WLResourceRequest.GET);
 	req.send().then(function(resp){
-		alert(resp.responseText);
+		//alert(resp.responseText);
+		
+		//------ UI Modification------------
+		busyIndicator2 = new WL.BusyIndicator(null, {text : 'Java Adapter'});
+		busyIndicator2.show();
+		setTimeout(function() {
+			busyIndicator2.hide();
+		}, 1500);
+		//alert5 = resp.responseText;
+		alert5 = "Java Adapter Success";
 	});
 	
 }
 
+//------------------------------------- Custom Authentication Module -------------------------------------
 
-// ---------------------------------- Location Services ---------------------------------
-//display the position to the user
-function displayPosition(pos) {
-	$('#longitude').html('<b>Longitude:</b> ' + pos.coords.longitude);
-	$('#latitude').html('<b>Latitude:</b> ' + pos.coords.latitude);
-	$('#timestamp').html('<b>Timestamp:</b> ' + new Date(pos.timestamp));
-}
-
-function alertOnGeoAcquisitionErr(geoErr) {
-	alert('Error acquiring geolocation (' + geoErr.code + '): ' + geoErr.message);
-}
-
-
-function getFirstPositionAndTrack() {
-	alert('Click OK to proceed to acquire starting position');
-
-	// use GPS to get the user's location
-	var geoPolicy = WL.Device.Geo.Profiles.LiveTracking();
-	geoPolicy.timeout = 60000; // set timeout to 1 minute
-	geoPolicy.maximumAge = 10000; // allow to use a position that is 10 seconds old
+function getDataFromJSAdapter(){
+	var invocationData = {
+			adapter:"JSDataAdapter",
+			procedure:"getSecretData",
+			parameters:[]
+	};
 	
-	// note: to see at high-accuracy, change RoughTracking above to LiveTracking
+//	WL.Client.invokeProcedure(invocationData).then(function(response){
+//		WL.Logger.debug("Received response!");
+//		$("#output").val(JSON.stringify(response.invocationResult));
+//        $('#output').format({method: 'json'});
+//	});
 	
-	// get the user's current position
-	WL.Device.Geo.acquirePosition(
-			function(pos) {
-				// when we receive the position, we display it and start on-going acquisition
-				displayPosition(pos);
-				
-				
-				var triggers = {
-					Geo: {
-						posChange: { // display all movement
-							type: "PositionChange",
-							callback: function(deviceContext) {
-									displayPosition(deviceContext.Geo);
-								}
-						},
-						
-						leftArea: { // alert when we have left the area
-							type: "Exit",
-							circle: {
-								longitude: pos.coords.longitude,
-								latitude: pos.coords.latitude,
-								radius: 200
-							},
-							callback: function() {
-								alert('Left the area');
-								WL.Client.transmitEvent({ event: 'exit area'}, true);
-							}
-						},
-						
-						dwellArea: { // alert when we have stayed in the vicinity for 3 seconds
-							type: "DwellInside",
-							circle: {
-								longitude: pos.coords.longitude,
-								latitude: pos.coords.latitude,
-								radius: 50
-							},
-							dwellingTime: 3000,
-							callback: function() {
-								alert('Still in the vicinity');
-								WL.Client.transmitEvent({ event: 'dwell inside area'}, true);
-							}
-						}
-					}	
-				};
-				
-				WL.Device.startAcquisition({ Geo: geoPolicy }, triggers, { Geo: alertOnGeoAcquisitionErr } );
-			},
-			function(geoErr) {
-				alertOnGeoAcquisitionErr(geoErr);
-				// try again:
-				getFirstPositionAndTrack();
-			},
-			geoPolicy
-		); 
-}
-
-function onConnectSuccess(){
-	// start up acquisition process
-	getFirstPositionAndTrack();
-
-}
-
-function onConnectFailure(){
-	WL.SimpleDialog.show("Location Services", "Failed connecting to MobileFirst server. Try again later.", 
-			[{
-				text : 'Reload',
-				handler : WL.Client.reloadApp
-			},
-			{
-				text: 'Close',
-				handler : function() {}
-			}]
-		);
-}
-
-/*function wlCommonInit(){
-	// Common initialization code goes here
-	WL.Client.connect({
-		onSuccess: onConnectSuccess,
-		onFailure: onConnectFailure
+	var request = new WLResourceRequest("/adapters/JSDataAdapter/getSecretData", WLResourceRequest.GET);
+	request.send().then(function(response){
+		
+		//------ UI Modification------------
+		busyIndicator2 = new WL.BusyIndicator(null, {text : 'Custom Auth'});
+		busyIndicator2.show();
+		setTimeout(function() {
+			busyIndicator2.hide();
+		}, 1500);
+		alert9 = "Custom Authentication Success";
+		WL.Logger.debug("Received response!");
+		
+		$("#output").val(response.responseText);
+        $('#output').format({method: 'json'});
 	});
 	
-	// keep running while in background on Android; will show a notification
-	WL.App.setKeepAliveInBackground(true);
-}*/
+	
+}
+
+var challengeHandler = WL.Client.createWLChallengeHandler("CustomRealm");
+challengeHandler.logger = WL.Logger.create({pkg:"challengeHandler"});
+
+challengeHandler.handleChallenge = function(challenge){
+    var authStatus = challenge.authStatus;
+	this.logger.info("handleChallenge :: authStatus :: " + authStatus)
+ 
+    if (authStatus == "credentialsRequired"){
+       /* $("#MainPage").hide();
+        $("#LoginPage").show();
+        $("#username").empty();
+        $("#password").empty();*/
+    	 challengeHandler.submitChallengeAnswer({
+         	username: "mfp",
+         	password: "mfp"
+         })
+ 
+        if (challenge.errorMessage){
+           // $("#errorMessage").html(challenge.errorMessage);
+        	alert9 = "Custom Authentication Failed";
+           
+        }
+    } 
+}
+
+function loginButtonClick(){
+    /*challengeHandler.submitChallengeAnswer({
+    	username: $("#username").val(),
+    	password: $("#password").val()
+    })*/
+}
+
+challengeHandler.processSuccess = function (data){
+	this.logger.info("processSuccess ::", data);
+    $("#LoginPage").hide();
+    $("#MainPage").show();
+}
+
+challengeHandler.handleFailure = function (data){
+	this.logger.info("handleFailure ::", data);
+    $("#LoginPage").hide();
+    $("#MainPage").show();
+	$("#output").val(JSON.stringify(data));
+    $('#output').format({method: 'json'});
+    alert9 = "Custom Authentication Failed";
+}
+
+//---------------------------------------- Double Step Authentication ---------------------------------------
+
+
+
+function getSecretDataDouble(){	
+	var resourceRequest = new WLResourceRequest("/adapters/DoubleStepAuthAdapter/getSecretDataDouble", WLResourceRequest.GET, 30000);
+	resourceRequest.send().then(
+		getSecretDataDouble_CallbackOK,
+		getSecretDataDouble_CallbackFail
+	);
+}
+
+function getSecretDataDouble_CallbackOK(response){
+	//$("#ResponseDiv").html(JSON.stringify(response.responseJSON));
+	busyIndicator2 = new WL.BusyIndicator(null, {text : 'Adapter Auth'});
+	busyIndicator2.show();
+	setTimeout(function() {
+		busyIndicator2.hide();
+	}, 1500);
+	alert8 = "Adapter Authentication Success";
+}
+
+function getSecretDataDouble_CallbackFail(response){
+	//$("#ResponseDiv").html(JSON.stringify(response.responseJSON));
+	alert8 = "Adapter Authentication Failed";
+}
+
+// ----------------------------------------- Display Alerts --------------------------------------------------
+function alerts(){
+	//document.write(alert1 +"\n" + alert2 + "\n"+ alert3 + "\n" + alert4 + "\n" + alert5 + "\n" + alert7 + "\n" + "\n" + alert8 + "\n" + alert9 + "\n" + alert10);
+//document.getElementById("submitProvCodeButton").innerHTML = submitProvCodeButton + doSubscribeSuccess;
+	window.alert(alert1 +"\n" + alert2 + "\n"+ alert3 + "\n" + alert4 + "\n" + "\n" + alert5 + "\n" + "\n" + alert7 + "\n" + "\n" + alert8 + "\n" + "\n" + alert9 + "\n" + "\n" + alert10);
+}
 /* JavaScript content from js/main.js in folder iphone */
 // This method is invoked after loading the main HTML and successful initialization of the IBM MobileFirst Platform runtime.
 function wlEnvInit(){

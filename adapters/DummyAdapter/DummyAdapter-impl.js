@@ -12,7 +12,8 @@
  */
 
 function getSecretData(){
-	return {
+	/*return {
 		secretData: '123456'
-	};
+	};*/
+	alert6 = "Form Based Authentication Success"
 }

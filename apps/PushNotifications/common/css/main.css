@@ -24,7 +24,7 @@ body {
 	overflow-y: auto;
 }
 
-#header {
+#header, #MainPage {
 	text-align: center;
 	background-color: #03A9F4;
 	color: #F9FAFB;
@@ -42,7 +42,7 @@ h1 {
 	font-family: inherit;
 }
 
-.wrapper {
+.wrapper, #LoginPage {
 	width: 90%;
 	margin: auto;
 	padding-top: 38px;
@@ -59,7 +59,7 @@ h1 {
 }
 
 
-.appButtons, #loginButton, #BusyIndicatorStartButton, #SimpleDialogStartButton , #connectToServerButton, #getSecretDataButton, .appButton, .button{
+.appButtons, #loginButton, #BusyIndicatorStartButton, #SimpleDialogStartButton , #connectToServerButton, #getSecretDataButton,#submitProvCodeButton, .appButton, #button{
 	width: 100%;
 	height: 3em;
 	font-size: 0.8em;

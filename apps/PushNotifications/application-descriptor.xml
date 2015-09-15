@@ -10,7 +10,7 @@
     IBM HAS NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS OR MODIFICATIONS TO THE SAMPLE SOURCE CODE.
  -->
 <!-- Attribute "id" must be identical to application folder name -->
-<application xmlns="http://www.worklight.com/application-descriptor" id="PushNotifications" platformVersion="7.0.0.00.20150312-0731">
+<application xmlns="http://www.worklight.com/application-descriptor" id="PushNotifications" platformVersion="7.1.0.00.20150807-0630">
     <displayName>PushNotifications</displayName>
     <description>PushNotifications</description>
     <author>
@@ -23,14 +23,15 @@
     <features/>
     <thumbnailImage>common/images/thumbnail.png</thumbnailImage>
     <iphone applicationId="CustomDeviceProvisioning" bundleId="com.PushNotifications" version="1.0">
- <worklightSettings include="false"/>
-            <pushSender password="worklightdev"/>
+        <worklightSettings include="false"/>
+        <pushSender password="worklightdev"/>
         <security>
             <encryptWebResources enabled="false"/>
             <testWebResourcesChecksum enabled="false" ignoreFileExtensions="png, jpg, jpeg, gif, mp4, mp3"/>
         </security>
     </iphone>
     <userIdentityRealms>PushAppRealm</userIdentityRealms>
+    <accessTokenExpiration>3600</accessTokenExpiration>
     <android securityTest="PushApplication-strong-mobile-securityTest" version="1.0">
         <worklightSettings include="false"/>
         <pushSender key="GCM_key" senderId="GCM_ID"/>
@@ -41,4 +42,5 @@
             <packageName>Replace this text with the actual package name of the application, which is the value of the 'package' attribute in the 'manifest' element in AndroidManifest.xml file.</packageName>
         </security>
     </android>
+    <common securityTest="CustomAuthSecurityTest"/>
 </application>
