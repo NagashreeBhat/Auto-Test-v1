@@ -30,9 +30,15 @@
     
     
     <customSecurityTest name="CustomAuthSecurityTest">
+<<<<<<< HEAD
 			<test realm="wl_antiXSRFRealm"/>
 			<test isInternalDeviceID="true" realm="wl_deviceNoProvisioningRealm"/>
 			<test isInternalUserID="true" realm="CustomRealm"/>
+=======
+			<test realm="wl_antiXSRFRealm" />
+			<test realm="wl_deviceNoProvisioningRealm" isInternalDeviceID="true" />
+			<test realm="CustomRealm" isInternalUserID="true" />
+>>>>>>> origin/master
 		</customSecurityTest>
         <!-- 
 		<mobileSecurityTest name="mobileTests">
@@ -96,7 +102,11 @@
     </securityTests>
     <realms>
     
+<<<<<<< HEAD
     <realm loginModule="CustomLoginModule" name="CustomRealm">
+=======
+    <realm name="CustomRealm" loginModule="CustomLoginModule">
+>>>>>>> origin/master
 			<className>com.demo.CustomAuthenticator</className>
 			<parameter name="greetingMessage" value="Happy new year! Please provide your credentials!"/>
 		</realm>
@@ -220,14 +230,22 @@
 		
 		
 		
+<<<<<<< HEAD
 		<loginModule expirationInSeconds="-1" name="CustomLoginModule">
+=======
+		<loginModule name="CustomLoginModule">
+>>>>>>> origin/master
 			<className>com.demo.CustomLoginModule</className>
 			<parameter name="username" value="mfp"/>
 			<parameter name="password" value="mfp"/>
 			<parameter name="maxAuthenticationAttempts" value="3"/>
 		</loginModule>
 		
+<<<<<<< HEAD
 		<loginModule expirationInSeconds="-1" name="AuthLoginModule">
+=======
+		<loginModule name="AuthLoginModule">
+>>>>>>> origin/master
 			<className>com.worklight.core.auth.ext.NonValidatingLoginModule</className>
 		</loginModule>
 		

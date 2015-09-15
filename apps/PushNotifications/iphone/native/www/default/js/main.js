@@ -338,8 +338,17 @@ challengeHandler.handleChallenge = function(challenge){
          })
  
         if (challenge.errorMessage){
+<<<<<<< HEAD
            // $("#errorMessage").html(challenge.errorMessage);
         	alert9 = "Custom Authentication Failed";
+=======
+<<<<<<< Updated upstream
+            $("#errorMessage").html(challenge.errorMessage);
+=======
+           // $("#errorMessage").html(challenge.errorMessage);
+        	alert9 = "Custom Authentication Failed";
+>>>>>>> Stashed changes
+>>>>>>> origin/master
            
         }
     } 
@@ -364,7 +373,14 @@ challengeHandler.handleFailure = function (data){
     $("#MainPage").show();
 	$("#output").val(JSON.stringify(data));
     $('#output').format({method: 'json'});
+<<<<<<< HEAD
     alert9 = "Custom Authentication Failed";
+=======
+<<<<<<< Updated upstream
+=======
+    alert9 = "Custom Authentication Failed";
+>>>>>>> Stashed changes
+>>>>>>> origin/master
 }
 
 //---------------------------------------- Double Step Authentication ---------------------------------------

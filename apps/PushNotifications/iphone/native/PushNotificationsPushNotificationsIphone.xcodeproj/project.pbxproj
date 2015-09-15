@@ -505,7 +505,15 @@
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Entitlements-Debug.plist";
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
+=======
+<<<<<<< Updated upstream
+				CODE_SIGN_IDENTITY = "iPhone Developer: Thejaswini Ramachandra (6D6FRG5988)";
+=======
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
+>>>>>>> Stashed changes
+>>>>>>> origin/master
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -556,7 +564,15 @@
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Entitlements-Release.plist";
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
+=======
+<<<<<<< Updated upstream
+				CODE_SIGN_IDENTITY = "iPhone Developer: Thejaswini Ramachandra (6D6FRG5988)";
+=======
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
+>>>>>>> Stashed changes
+>>>>>>> origin/master
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -629,7 +645,15 @@
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Entitlements-Release.plist";
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
+=======
+<<<<<<< Updated upstream
+				CODE_SIGN_IDENTITY = "iPhone Developer: Thejaswini Ramachandra (6D6FRG5988)";
+=======
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chethan Settipalli (239WRL82JA)";
+>>>>>>> Stashed changes
+>>>>>>> origin/master
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
